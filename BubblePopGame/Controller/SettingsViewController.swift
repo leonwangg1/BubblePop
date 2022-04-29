@@ -16,6 +16,8 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var noBubblesLbl: UILabel!
     @IBOutlet weak var timerSlider: UISlider!
     @IBOutlet weak var maxBubblesSlider: UISlider!
+    @IBOutlet weak var soundSwitch: UISwitch!
+    @IBOutlet weak var musicSwitch: UISwitch!
     
     @IBAction func closeSettingsBtn(_ sender: Any) {
         self.removeAnimate()
@@ -31,8 +33,24 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     // Update maximum bubbles given the players choice
     @IBAction func maxBubblesSlider(_ sender: UISlider) {
         var maxBubbles = Int(sender.value)
-        userDefaults.setValue(maxBubbles, forKey: "noBubbles")
+        userDefaults.setValue(maxBubbles, forKey: "noBubbles") 
         noBubblesLbl.text = String(maxBubbles)
+    }
+    
+    @IBAction func bgMusic(_ sender: UISwitch) {
+        if sender.isOn {
+//            ViewController.playBackgroundMusic(<#T##self: ViewController##ViewController#>)
+        } else {
+//            ViewController.stopBackgroundMusic()
+        }
+    }
+    
+    @IBAction func hitSound(_ sender: UISwitch) {
+        if sender.isOn {
+            userDefaults.set("on", forKey: "hitSound")
+        } else {
+            userDefaults.set("off", forKey: "hitSound")
+        }
     }
     
     override func viewDidLoad() {
@@ -61,6 +79,14 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 //        noBubblesLbl.text = String((userDefaults.value(forKey: "noBubbles") as! Int))
         if let value = userDefaults.value(forKey: "noBubbles") as? Int {
             noBubblesLbl.text = String(value)
+        }
+        
+        if let value = userDefaults.value(forKey: "hitSound") as? String {
+            if value == "on"{
+                soundSwitch.setOn(true, animated: true)
+            } else {
+                soundSwitch.setOn(false, animated: true)
+            }
         }
         // Do any additional setup after loading the view
     }

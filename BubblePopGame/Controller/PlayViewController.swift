@@ -162,8 +162,10 @@ class PlayViewController: UIViewController {
         }
         
         // Remove pressed bubble from view
-        sender.removeFromSuperview()
-        
+        sender.tapAnimation()
+        if (userDefaults.value(forKey: "hitSound") as! String == "on"){
+            sender.hitSound()
+        }
     }
 
 

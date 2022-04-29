@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class Bubble: UIButton {
 
     var value: Int = 0
+    var audioPlayer = AVAudioPlayer()
     
     // Screen dimensions
     let screenSize: CGRect = UIScreen.main.bounds
@@ -57,5 +59,24 @@ class Bubble: UIButton {
         springAnimation.damping = 1
         
         layer.add(springAnimation, forKey: nil)
+    }
+    
+    func tapAnimation(){
+        UIView.animate(withDuration: 0.4, animations: {
+            self.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            self.alpha = 0
+        }, completion: { (_) in
+            self.removeFromSuperview()
+        })
+    }
+    
+    func hitSound(){
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "hitsound", ofType: "mp4")!))
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        } catch {
+            print(error)
+        }
     }
 }

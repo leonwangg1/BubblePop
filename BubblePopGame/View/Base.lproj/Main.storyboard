@@ -188,7 +188,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6s8-0C-xFc">
-                                <rect key="frame" x="69" y="94" width="276" height="21"/>
+                                <rect key="frame" x="69" y="94" width="276" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdc-Zi-7Gg" userLabel="ScoreLbl">
                                         <rect key="frame" x="0.0" y="0.0" width="17.5" height="20.5"/>
@@ -390,6 +390,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ph-L1-PL6">
                                                 <rect key="frame" x="207" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="bgMusic:" destination="7XK-cS-LlO" eventType="valueChanged" id="etr-rB-hHj"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -404,6 +407,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eYc-ED-LNZ">
                                                 <rect key="frame" x="205" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="hitSound:" destination="7XK-cS-LlO" eventType="valueChanged" id="fnO-ZF-aMu"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -469,8 +475,10 @@
                     <navigationItem key="navigationItem" id="49K-XE-bLR"/>
                     <connections>
                         <outlet property="maxBubblesSlider" destination="b3C-K9-fAf" id="vZf-V6-It0"/>
+                        <outlet property="musicSwitch" destination="1ph-L1-PL6" id="O5N-LB-9Qh"/>
                         <outlet property="noBubblesLbl" destination="ISU-Xt-LIg" id="c17-LP-MI0"/>
                         <outlet property="playerName" destination="Jse-Uq-mFN" id="90W-Lo-ejL"/>
+                        <outlet property="soundSwitch" destination="eYc-ED-LNZ" id="gtK-Lh-ObY"/>
                         <outlet property="timeLbl" destination="kQs-oG-maU" id="0pk-7V-bCC"/>
                         <outlet property="timerSlider" destination="dmH-8X-1qc" id="DWD-Vr-5uy"/>
                     </connections>
