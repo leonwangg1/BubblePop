@@ -14,6 +14,7 @@ class PlayViewController: UIViewController {
     @IBOutlet var countdownLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!
+    @IBOutlet weak var countdownLbl: UILabel!
     
     var remainingTime = 60
     var score = 0
@@ -24,6 +25,7 @@ class PlayViewController: UIViewController {
     var bubbleArr = [Bubble]()
     var prev = 9999
     var highscoreDict = [String: Int]()
+    var countDown = 4
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +39,27 @@ class PlayViewController: UIViewController {
         highScoreLabel.text = String(highscore)
         highscoreDict = userDefaults.value(forKey: "leaderboard") as! [String: Int]
         
+        self.updateCountDown()
+        
         // Activate timer, and generate bubble each second
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
             timer in
+            if self.countDown != 0{
+                self.updateCountDown()
+            }
+            if self.countDown == 0{
             self.counting()
             self.removeBubble()
             self.generateBubble()
+            }
+        }
+    }
+    
+    func updateCountDown() {
+        self.countdownLbl.text = String(self.countDown-1)
+        countDown -= 1
+        if (countDown==0){
+            self.countdownLbl.removeFromSuperview()
         }
     }
     

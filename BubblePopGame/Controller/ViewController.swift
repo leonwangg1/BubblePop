@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     var gameBGMusic = AVAudioPlayer()
     let userDefaults = UserDefaults()
-    @IBOutlet var playBtn: UIButton!    
+    @IBOutlet var playBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
