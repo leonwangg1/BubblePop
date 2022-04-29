@@ -7,4 +7,5 @@ BubblePop! is a simple iOS game developed using the Swift programming language. 
 
 ## Gameplay
 
+![Hnet com-image](https://user-images.githubusercontent.com/62505788/165940385-b39b0e3c-5d39-4e5a-a0f4-0fa10ba60c08.gif)
 
